@@ -1,0 +1,90 @@
+let text = document.getElementById("textInput");
+
+text.addEventListener("keyup", countText);
+
+function countText() {
+
+    let value = text.value;
+
+    // character count
+    document.getElementById("chars").innerText = value.length;
+
+    // word count
+    let wordsArray = value.split(" ");
+    let count = 0;
+
+    for (let i = 0; i < wordsArray.length; i++) {
+        if (wordsArray[i] !== "") {
+            count++;
+        }
+    }
+
+    document.getElementById("words").innerText = count;
+
+    // longest word
+    let longest = "";
+
+    for (let i = 0; i < wordsArray.length; i++) {
+        if (wordsArray[i].length > longest.length) {
+            longest = wordsArray[i];
+        }
+    }
+
+    if (longest === "") {
+        longest = "-";
+    }
+
+    document.getElementById("long").innerText = longest;
+
+    // digits and special characters
+    let digitCount = 0;
+    let specialCount = 0;
+
+    for (let i = 0; i < value.length; i++) {
+
+        let ch = value[i];
+
+        if (ch >= '0' && ch <= '9') {
+            digitCount++;
+        } else if (!((ch >= 'a' && ch <= 'z') ||
+                (ch >= 'A' && ch <= 'Z') ||
+                ch === ' ')) {
+            specialCount++;
+        }
+    }
+
+    document.getElementById("digits").innerText = digitCount;
+    document.getElementById("special").innerText = specialCount;
+}
+
+
+// buttons
+
+function makeUpper() {
+    text.value = text.value.toUpperCase();
+    countText();
+}
+
+function makeLower() {
+    text.value = text.value.toLowerCase();
+    countText();
+}
+
+function removeSpace() {
+    let str = text.value;
+    let newText = "";
+
+    for (let i = 0; i < str.length; i++) {
+        if (!(str[i] === " " && str[i + 1] === " ")) {
+            newText += str[i];
+        }
+    }
+
+    text.value = newText.trim();
+    countText();
+}
+
+function clearAll() {
+    text.value = "";
+    countText();
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>✨ Text Analyzer</h1>
+
+        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+
+        <div class="buttons">
+            <button onclick="makeUpper()">UPPERCASE</button>
+            <button onclick="makeLower()">lowercase</button>
+            <button onclick="removeSpace()">Clean Spaces</button>
+            <button onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="results">
+            <div class="card">
+                <p>Words</p>
+                <h2 id="words">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Characters</p>
+                <h2 id="chars">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Longest</p>
+                <h2 id="long">-</h2>
+            </div>
+
+            <div class="card">
+                <p>Digits</p>
+                <h2 id="digits">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Special</p>
+                <h2 id="special">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
